@@ -5,11 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Main {
 
@@ -27,8 +30,7 @@ public class Main {
 		} catch (FileNotFoundException e) {
 			fixa = false;
 		}
-		String nom, cognom;
-		int DNI;
+		String nom, cognom, DNI;
 		Persona persona = null;
 		boolean seguir = true;
 		int opcio;
@@ -39,7 +41,7 @@ public class Main {
 			while (entradaFitxer.hasNext()) {
 				nom = entradaFitxer.next();
 				cognom = entradaFitxer.next();
-				DNI = Integer.parseInt(entradaFitxer.next());
+				DNI = entradaFitxer.next();
 				persona = new Persona(nom, cognom, DNI);
 				pipol.add(persona);
 			}
@@ -97,7 +99,7 @@ public class Main {
 			FileWriter escriptor = new FileWriter("C:\\Users\\formacio\\Desktop\\Persones.txt");
 			for (Persona i : ordreFinal()) {
 				escriptor.write(coma + i.getNom() + "," + i.getCognom() + "," + i.getDNI());
-				coma = ","; //esto sirve para que la primera no tenga coma pero cuando salte de persona si uq ela tenga
+				coma = ","; //esto sirve para que la primera no tenga coma pero cuando salte de persona si que la tenga
 			}
 			// escriptor.write();
 			System.out.println(":)");
@@ -109,8 +111,7 @@ public class Main {
 	}
 
 	public static void novaPersona() {
-		String nom, cognom;
-		int DNI;
+		String nom, cognom, DNI;
 		boolean seguir;
 		Persona persona = null;
 		do {
@@ -119,7 +120,7 @@ public class Main {
 			System.out.println("Diguem el cognom de la persona");
 			cognom = entrada.nextLine();
 			System.out.println("Diguem el seu DNI");
-			DNI = numeros();
+			DNI = entrada.nextLine();
 			persona = new Persona(nom, cognom, DNI);
 			if (!pipol.add(persona)) {
 				seguir = true;

@@ -1,10 +1,9 @@
 package N3E1;
 
 public class Persona {
-	String nom, cognom;
-	int DNI;
+	String nom, cognom, DNI;
 
-	public Persona(String nom, String cognom, int DNI) {
+	public Persona(String nom, String cognom, String DNI) {
 		super();
 		this.nom = nom;
 		this.cognom = cognom;
@@ -19,7 +18,7 @@ public class Persona {
 		return cognom;
 	}
 
-	public int getDNI() {
+	public String getDNI() {
 		return DNI;
 	}
 
@@ -31,7 +30,7 @@ public class Persona {
 		this.cognom = cognom;
 	}
 
-	public void setDNI(int DNI) {
+	public void setDNI(String DNI) {
 		this.DNI = DNI;
 	}
 	
@@ -39,7 +38,7 @@ public class Persona {
 	@Override
 	public int hashCode() {
 		int hash;
-		hash = getNom().hashCode() + getCognom().hashCode() + getDNI();
+		hash = getNom().hashCode() + getCognom().hashCode() + getDNI().hashCode();
 		return hash;
 	}
 
