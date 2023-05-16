@@ -27,7 +27,7 @@ public class Restaurant implements Comparable<Restaurant> {
 
 	@Override
 	public String toString() {
-		return getNom() + "  " + getPuntuacio();
+		return getNom() + " 	 " + getPuntuacio();
 	}
 
 	@Override
@@ -51,10 +51,10 @@ public class Restaurant implements Comparable<Restaurant> {
 	@Override
 	public int compareTo(Restaurant res) {
 
-		int r;
-
-		r = this.nom.compareTo(res.getNom());
-
+		int r = this.puntuacio - res.getPuntuacio();
+		if (r == 0) {
+			r = this.nom.compareTo(res.getNom());
+		}
 
 		return r;
 	}
@@ -72,3 +72,5 @@ public class Restaurant implements Comparable<Restaurant> {
 
 
 }
+
+

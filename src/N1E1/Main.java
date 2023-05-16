@@ -1,36 +1,56 @@
 package N1E1;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Iterator;
 
 public class Main {
 	public static void main (String args[]) {
-		Month mesos = new Month();
-		mesos.getMesos().add("Gener");
-		mesos.getMesos().add("Febrer");
-		mesos.getMesos().add("Març");
-		mesos.getMesos().add("Abril");
-		mesos.getMesos().add("Maig");
-		mesos.getMesos().add("Juny");
-		mesos.getMesos().add("Juliol");
-		mesos.getMesos().add("Setembre");
-		mesos.getMesos().add("Octubre");
-		mesos.getMesos().add("Novembre");
-		mesos.getMesos().add("Desembre");		
+		
+		ArrayList<Month> mesos = new ArrayList<Month>();
+		
+		Month m1 = new Month ("Gener");
+		Month m2 = new Month ("Febrer");
+		Month m3 = new Month ("Març");
+		Month m4 = new Month ("Abril");
+		Month m5 = new Month ("Maig");
+		Month m6 = new Month ("Juny");
+		Month m7 = new Month ("Juliol");
+		Month m8 = new Month ("Setembre");
+		Month m9 = new Month ("Octubre");
+		Month m10 = new Month ("Novembre");
+		Month m11 = new Month ("Desembre");
 
-		System.out.println(mesos.getMesos());
+		
+		
+		mesos.add(m1);
+		mesos.add(m2);
+		mesos.add(m3);
+		mesos.add(m4);
+		mesos.add(m5);
+		mesos.add(m6);
+		mesos.add(m7);
+		mesos.add(m8);
+		mesos.add(m9);
+		mesos.add(m10);
+		mesos.add(m11);		
 
-		mesos.getMesos().add(7, "Agost");
+		System.out.println(mesos);
 
-		System.out.println(mesos.getMesos());
+		Month m12 = new Month("Agost");
+		mesos.add(7, m12);
 
-		Set<String> mesosHash = new HashSet<String>(mesos.getMesos());
+		System.out.println(mesos);
+
+		Set<Month> mesosHash = new HashSet<Month>(mesos);
 
 		System.out.println(mesosHash);
 
-		mesosHash.addAll(mesos.getMesos());
+		mesosHash.addAll(mesos);
 
+		mesosHash.add(m5);
+		
 		System.out.println(mesosHash);
 
 
@@ -42,7 +62,7 @@ public class Main {
 
 
 
-		for (String i : mesos.getMesos()) {
+		for (Month i : mesos) {
 			System.out.println(i);
 		}
 
@@ -53,7 +73,7 @@ public class Main {
 		System.out.println();
 
 
-		Iterator <String> iteracio = mesos.getMesos().iterator();
+		Iterator <Month> iteracio = mesos.iterator();
 
 		while (iteracio.hasNext()) {
 			System.out.println(iteracio.next());

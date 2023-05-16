@@ -13,15 +13,15 @@ public class Main {
 		llista1.add(2);
 		llista1.add(3);
 		
-		llista2.add(1);
-		llista2.add(2);
-		llista2.add(3);
+		llista2.add(7);
+		llista2.add(8);
+		llista2.add(9);
 		
 		System.out.println(llista2);
 		
 		ListIterator<Integer> it = llista1.listIterator(llista1.size());
 		
-		while(it.hasPrevious()) {
+		while(it.hasPrevious()) {//crec que aixo hauria de ser un for pero no estic segur com fer-ho
 			llista2.add(it.previous());
 		}
 		

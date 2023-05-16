@@ -1,13 +1,14 @@
 package N2E2;
 
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
-import N2E1.Restaurant;
 
 public class Main {
 	static Set<Restaurant> restaurants = new HashSet<Restaurant>();
@@ -68,16 +69,9 @@ public class Main {
 	}
 	
 	public static void veureRestaurant() {
-		TreeSet<Restaurant> arbre = new TreeSet<Restaurant>();
-		
-		/*or (Iterator<Restaurant> i = restaurants.iterator(); i.hasNext(); ) {
-			arbre.add(i.next());
-		}*/
-		System.out.println(restaurants);
+		TreeSet<Restaurant> arbre = new TreeSet<Restaurant>(Comparator.reverseOrder());
 		
 		arbre.addAll(restaurants);
-		System.out.println(restaurants);
-		System.out.println(arbre);
 		
 		for (Restaurant i : arbre) {
 			System.out.println(i);
